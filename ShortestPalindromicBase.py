@@ -10,36 +10,41 @@ def validate_input (number) :
         number = [int(convert) for convert in str(number)] #If it is an integer, convert it into an integer array
         return number
     elif type(number) == type({}):
-        if number[0] == type(int): #Check if Hashmap values have integer key values or else discard input
+        if type(number[0]) == type(0): #Check if Hashmap values have integer key values or else discard input
             return number
         else :
             return None
     else :                   #Discard all other data type inputs
         return None
+
 ##Defining palindrome checking function
 def palindrome (number):
-  number = validate_input(number)
-  endpointer = len(number)-1
-  for startpointer in range(0,len(number)):
-    if (number[startpointer] != number[endpointer]):
-      return False
-    endpointer -= 1
-  return True
+  number = validate_input(number)   #Call validating function
+  if number != None :               #Execute if the input is valid
+      endpointer = len(number)-1
+      for startpointer in range(0,len(number)):
+        if (number[startpointer] != number[endpointer]):    #Compare from first and last indices and move to the center
+          return False
+        endpointer -= 1
+      return True
 
 # Defining function to convert given number to the defined base
 def base (value , n):
-  new_number = {}
+  new_number = {}       #Initiate dictionary for the number output
   iterator = 0
-  if n <= 1 or value <= 0 or isinstance(value, float) or isinstance(n , float):
+  if n <= 1 or value <= 0 or isinstance(value, float) or isinstance(n , float): #Discard incorrect values or types
     return None
   else:
-    while (value != 0):
+    while (value != 0):                         #Extract digit by digit from the number and store it in a dictionary
         remainder = int(value % n)
         value = int(value/n)
         new_number[iterator] = remainder
         iterator += 1
     return new_number
 
+##################################################################################
+##      Return the number to the required base in the form of a dictionary      ##
+##      because as we convert numbers beyond  100
 
 
 start = time.clock()       #Timer to measure the run time
