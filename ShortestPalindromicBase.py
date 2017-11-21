@@ -42,9 +42,13 @@ def base (value , n):
         iterator += 1
     return new_number
 
-##################################################################################
-##      Return the number to the required base in the form of a dictionary      ##
-##      because as we convert numbers beyond  100
+###################################################################################
+##      Return the number to the required base in the form of a dictionary       ##
+##      because as we convert numbers beyond a point we might run out of symbols ##
+##      to represent values. Hence, we might get a remainder value in multiple   ##
+##      digits. For example, 33 base 32 should be 11. But if we keep it as       ##
+##      numbers/string data type we might get it as 132                          ##
+###################################################################################
 
 
 start = time.clock()       #Timer to measure the run time
