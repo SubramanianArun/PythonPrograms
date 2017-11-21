@@ -72,11 +72,6 @@ for value_iterator in range(1,n+1):
   if(hash_map[value_iterator] == None):   #If not found, assign n-1 value
     hash_map[value_iterator] = value_iterator-1
 
-#Brute Force Method
-  '''for i in range(2,n):
-        for j in range(1,n+1):
-            if(palindrome(base(j,i)) and hash_map[j] == None):
-                hash_map[j] = i'''
 
 #Printing the hash_map
 print "decimal", "smallest base in which the number is a palindrome"
